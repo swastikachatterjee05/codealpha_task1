@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELORA Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>VELORA</h1>
+    <nav>
+      <button onclick="showSection('products-section')">Products</button>
+      <button onclick="showSection('cart-section')">Cart (<span id="cart-count">0</span>)</button>
+      <div id="auth-links">
+        <button onclick="showSection('login-section')">Login / Register</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Products Catalog -->
+    <section id="products-section">
+      <div class="hero">
+        <h2>Featured Collection</h2>
+        <p>Explore our premium tech accessories and electronics</p>
+      </div>
+      <div id="product-list" class="grid"></div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section id="details-section" class="hidden">
+      <button class="back-btn" onclick="showSection('products-section')">← Back to Products</button>
+      <div id="product-details-container"></div>
+    </section>
+
+    <!-- Shopping Cart Page -->
+    <section id="cart-section" class="hidden">
+      <h2>Your Shopping Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-summary">
+  <h3>Total: ₹<span id="cart-total">0.00</span></h3>
+  <button class="checkout-btn" onclick="alert('Checkout completed!')">Checkout</button>
+</div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="login-section" class="hidden">
+      <div class="auth-card">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="button" onclick="handleLogin()">Login</button>
+        </form>
+        <p id="login-msg" class="auth-msg"></p>
+        <div class="auth-toggle">
+          Don't have an account? 
+          <button class="link-btn" onclick="showSection('register-section')">Register</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register Page -->
+    <section id="register-section" class="hidden">
+      <div class="auth-card">
+        <h2>Register</h2>
+        <form id="register-form">
+          <input type="text" id="reg-username" placeholder="Username" required />
+          <input type="email" id="reg-email" placeholder="Email" required />
+          <input type="password" id="reg-password" placeholder="Password" required />
+          <button type="button" onclick="handleRegister()">Register</button>
+        </form>
+        <p id="reg-msg" class="auth-msg"></p>
+        <div class="auth-toggle">
+          Already have an account? 
+          <button class="link-btn" onclick="showSection('login-section')">Login</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
